@@ -1,0 +1,28 @@
+// Подключение функционала "Чертогов Фрилансера"
+import { isMobile } from "./functions.js";
+// Подключение списка активных модулей
+import { flsModules } from "./modules.js";
+
+
+
+window.onload = function() {
+    let activeTown = document.querySelector(".towns-header__active")
+    activeTown.addEventListener("click", function(){
+        activeTown.classList.toggle("_active")
+    })
+
+    let navMenu = document.querySelector(".header__nav-menu")
+    let layer = document.querySelector(".layer")
+    let burgerMenu = document.querySelector(".icon-menu")
+    burgerMenu.addEventListener("click", function(){
+        navMenu.classList.add("_active")
+        layer.classList.add("__active")
+       
+    })
+
+    let closeButton = document.querySelector(".__cross")
+    closeButton.addEventListener("click", function() {
+        navMenu.classList.remove("_active")
+        layer.classList.remove("__active")
+    })
+}

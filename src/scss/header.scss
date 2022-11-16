@@ -1,0 +1,243 @@
+//====================================================================================================
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	@include adaptiveValue("padding-right", 0, 10);
+	&:hover {
+		cursor: pointer;
+	}
+	@media (max-width: 5000px) {
+		display: block;
+		position: relative;
+		@include adaptiveValue("width", 28, 38);
+		height: rem(18);
+		z-index: 1;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: rgb(255, 255, 255);
+		}
+		&::before {
+			top: 6px;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		/*.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}*/
+	}
+}
+
+
+
+.header {
+	height: 90px;
+	&__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include adaptiveValue("padding-top", 20, 10);
+		@include adaptiveValue("padding-bottom", 20, 10);
+		@include adaptiveValue("gap", 115, 60);
+
+		
+	}
+	&__logo {
+		& img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.towns-header {
+	&__active {
+		cursor: pointer;
+		position: relative;
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 400;
+		@include adaptiveValue("font-size", 20, 14);
+		line-height: 153.88%;
+		color: #fff;
+		letter-spacing: 0.02em;
+		
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			@include adaptiveValue("top", 11.8, 7);
+			@include adaptiveValue("padding-left", 0, 10);
+			right: 0px;
+			width: 8px;
+			height: 1.5px;
+			background-color: #fff;
+			transition: all 0.3s ease 0s;
+			
+		}
+		
+		&::before {
+			right: -14px;
+			transform: rotate(45deg);
+		}
+		&::after {
+			right: -20px;
+
+			transform: rotate(-45deg);
+		}
+		&._active {
+			&::after {
+				right: -20px;
+	
+				transform: rotate(45deg);
+			}
+			&::before {
+				right: -14px;
+				
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	&__list {
+		position: absolute;
+		margin-top: 10px;
+		background: #164e51;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		width: 110px;
+		left: 0;
+		margin-top: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		
+	}
+	&__item {
+		font-family: 'Raleway';
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 153.88%;
+		letter-spacing: 0.02em;
+		color: #fff;
+		padding-right: 10px;
+		padding-left: 15px;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+		&:hover {
+			cursor: pointer;
+			background-color: #14595d;
+			
+		}
+		
+	}
+}
+.menu-nav {
+	position: fixed;
+	top: 0px;
+	right: -300%;
+	height: 100%;
+	width: 530px;
+	//left: 100%;
+	text-align: right;
+	background-color: #0F3739;
+	overflow: auto;
+	z-index: 5;
+	transition: all 0.3s ease 0s;
+	&._active {
+		right: 0;
+	}
+	&__list {
+		padding-top: 30px;
+		@include adaptiveValue("padding-right", 65, 30);
+		padding-bottom: 70px;
+	}
+	&__item {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 400;
+		@include adaptiveValue("font-size", 36, 20);
+		line-height: calc(42/36*100%);
+		color: #fff;
+		
+		&:not(:last-child){
+			@include adaptiveValue("padding-bottom", 35, 15);
+			
+		}
+	}
+	&__link {
+		text-decoration: none;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			@include adaptiveValue("font-size", 37, 26);
+			font-weight: 600;
+		}
+	}
+	&__icons {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		@include adaptiveValue("gap", 40, 25);
+		gap: 40px;
+		margin-top: 20px;
+
+	}
+	&__icon-link {
+		transition: all 0.3s ease 0s;
+		&:hover {
+			opacity: 0.5;
+		}
+		
+	}
+}
+
+.__cross {
+	cursor: pointer;
+	transition: all 0.5s ease 0s;
+	margin-bottom: 15px;
+	& img {
+		@include adaptiveValue("width", 25, 15);
+		@include adaptiveValue("height", 25, 15);
+		width: 25px;
+		height: 25px;
+	}
+}
+
+.guest {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 10px;
+	& img {
+		object-fit: cover;
+	}
+}
