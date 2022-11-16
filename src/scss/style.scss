@@ -166,3 +166,225 @@ body {
 		opacity: 0.4;
 	}
 }
+
+.main-menu {
+	&__container{
+		@media (max-width: $mobile) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	&__slider {
+		border-radius: 12px;
+		@media (max-width: $mobile) {
+			border-radius: 0px;
+		}
+	}
+	&__wrapper {
+		
+	}
+	&__slide {
+		
+		cursor: pointer;
+		& img {
+			border-radius: 12px;
+			@media (max-width: $mobile) {
+				border-radius: 0px;
+			}
+			width: 100%;
+			object-fit: cover;
+			
+			
+		}
+	}
+}
+.main-menu__slider-pagination-bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: -80px;
+	z-index: 10;
+	& span {
+		font-size: 0px;
+		background-color: #fff;
+		width: 10px;
+		height: 10px;
+		display: none;
+		transition: all 0.3s ease 0s;
+		@media (max-width: $mobile) {
+			&.swiper-pagination-bullet {
+				visibility: visible;
+				display: block;
+			}
+			&.swiper-pagination-bullet-active {
+				position: relative;
+				display: block;
+				width: 14px;
+				height: 14px;
+			}
+		}
+	}
+	&.swiper-pagination-bullet {
+		
+	}
+}
+.main-menu__slider-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include adaptiveValue("gap", 40, 0);
+	width: auto !important;
+	left: auto !important;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	
+	& span {
+		width: auto;
+		background: none;
+	}
+}
+
+.swiper-pagination-bullet {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	@include adaptiveValue("font-size", 20, 14);
+	line-height: 23px;
+	
+	@media (max-width: $mobile) {
+		visibility: hidden;
+	}
+	
+}
+.swiper-pagination-bullet-active {
+	color: #ffffff;
+	font-weight: 700;
+	@media (max-width: $mobile) {
+		visibility: visible;
+		position: absolute;
+	}
+	text-align: center;
+}
+
+.mobile {
+	margin-top: 200px;
+	background: #0E3032;
+	&__container {
+		@include adaptiveValue("padding-top", 100, 62);
+		padding-top: 104px;
+		@include adaptiveValue("padding-bottom", 120, 70);
+	}
+	&__title {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 800;
+		@include adaptiveValue("font-size", 90, 38);
+		line-height: 115%;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		text-align: center;
+		@include adaptiveValue("padding-bottom", 92, 34);
+		color: transparent;
+		-webkit-text-stroke: 2px #fff;
+
+	}
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include adaptiveValue("gap", 170, 80);
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+			gap: 35px;
+		}
+	}
+}
+.content-mobile {
+	&__info {
+		max-width: 470px;
+		display: flex;
+		flex-direction: column;
+	}
+	&__title {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 500;
+		@include adaptiveValue("font-size", 20, 16);
+		line-height: 153.88%;
+		letter-spacing: 0.02em;
+		color: #fff;
+		padding-bottom: 25px;
+	
+		@media (max-width: $mobile) {
+			padding-left: 5px;
+			
+		}
+		
+	}
+	&__list {
+	}
+	&__item {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 500;
+		@include adaptiveValue("font-size", 20, 14);
+		line-height: 175.38%;
+		letter-spacing: 0.02em;
+		color: #fff;
+		position: relative;
+		display: flex;
+		align-items: center;
+		@media (max-width: $mobile) {
+			padding-left: 15px;
+			
+		}
+		& span {
+			font-weight: 700;
+		}
+		&::before {
+			content: "";
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin-right: 15px;
+		}
+	}
+	&__install {
+		padding-top: 39px;
+		padding-bottom: 31px;
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("gap", 31, 10);
+		@media (max-width: $mobile) {		
+		}
+	}
+	&__button {
+		text-decoration: none;
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 600;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: 153.88%;
+		border: 2px solid #165659;
+		border-radius: 8px;
+		padding: 11px 48px;
+		margin: 0 auto;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			background-color: #118181;
+		}
+	}
+	&__image {
+		& img {
+			width: 100%;
+			object-fit: cover;
+			@media (max-width: $mobile) {
+				padding-left: 45px;
+				padding-right: 45px;
+			}
+		}
+	}
+}

@@ -3,11 +3,11 @@
 Документация слайдера: https://swiperjs.com/
 Сниппет(HTML): swiper
 */
-
+let menu = ['Завтраки', 'Мобильное приложение', 'Кофе в зёрнах', 'Круассаны', 'Новый какао']
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -19,20 +19,20 @@ EffectFade, Lazy, Manipulation
 // Базовые стили
 import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
-// import 'swiper/css';
+import 'swiper/css';
 
 // Инициализация слайдеров
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.main-menu__slider')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		new Swiper('.main-menu__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation],
+			modules: [Navigation, Pagination],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -41,27 +41,30 @@ function initSliders() {
 			speed: 800,
 
 			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
+			simulateTouch: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
+			
 			// Эффекты
 			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			*/
+			
 
 			// Пагинация
-			/*
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.main-menu__slider-pagination, .main-menu__slider-pagination-bottom',
 				clickable: true,
+				renderBullet: function(index, className){
+					return '<span class="' + className + '">' + (menu[index]) + '</span>';
+				}
+				
 			},
-			*/
+			
 
 			// Скроллбар
 			/*

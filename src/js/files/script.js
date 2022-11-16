@@ -25,4 +25,6 @@ window.onload = function() {
         navMenu.classList.remove("_active")
         layer.classList.remove("__active")
     })
+
+    let navButton = document.querySelector("")
 }

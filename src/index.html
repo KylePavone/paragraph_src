@@ -7,6 +7,69 @@
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="main-menu">
+					<div class="main-menu__container">
+						<!-- Оболочка слайдера -->
+						<div class="main-menu__slider swiper">
+							<!-- Двигающееся часть слайдера -->
+							<div class="main-menu__wrapper swiper-wrapper">
+								<!-- Слайд -->
+								<div class="main-menu__slide swiper-slide">
+									<img src="img/main-slider/1.jpg" alt="">
+								</div>
+								<div class="main-menu__slide swiper-slide">
+									<img src="img/main-slider/2.jpg" alt="">
+								</div>
+								<div class="main-menu__slide swiper-slide">
+									<img src="img/main-slider/3.jpg" alt="">
+								</div>
+								<div class="main-menu__slide swiper-slide">
+									<img src="img/main-slider/4.jpg" alt="">
+								</div>
+								<div class="main-menu__slide swiper-slide">
+									<img src="img/main-slider/5.jpg" alt="">
+								</div>
+							</div>
+							<!-- Если нужна пагинация -->
+							<div class="main-menu__slider-pagination"></div>
+							<div class="main-menu__slider-pagination-bottom"></div>
+						</div>
+					</div>
+				</section>
+				<section class="coffiehouse">
+					<div class="coffiehouse__container">
+						<div class="coffiehouse__main-title">кофейни</div>
+						<div class="coffiehouse__popup"></div>
+						<div class="coffiehouse__buttons"></div>
+						<div class="coffiehouse__content"></div>
+					</div>
+				</section>
+
+				<section class="mobile">
+					<div class="mobile__container">
+						<div class="mobile__title">Мобильное <br> приложение</div>
+						<div class="mobile__content content-mobile">
+							<div class="content-mobile__info">
+								<div class="content-mobile__title">Становитесь участником нашей <br> программы лояльности:</div>
+								<ul class="content-mobile__list">
+									<li class="content-mobile__item"><span>Кэшбэк на баланс</span></li>
+									<li class="content-mobile__item"><span>Особенные предложения</span></li>
+									<li class="content-mobile__item"><span>Скидки каждый день</span></li>
+									<li class="content-mobile__item"><span>Подарки для друзей</span></li>
+									<li class="content-mobile__item"><span>Бонусы для каждого</span></li>
+								</ul>
+								<div class="content-mobile__install">
+									<img src="img/mobile/google.png" alt="">
+									<img src="img/mobile/apple.png" alt="">
+								</div>
+								<a href="#" class="content-mobile__button">Программа лояльности</a>
+							</div>
+							<div class="content-mobile__image">
+								<img src="img/mobile/phones.png" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
 				<div class="layer"></div>
 			</main>
 			@@include('html/_footer.htm',{})
