@@ -5,6 +5,7 @@
 */
 let menu = ['Завтраки', 'Мобильное приложение', 'Кофе в зёрнах', 'Круассаны', 'Новый какао']
 let food = ['Дeсeрты', 'Еда', 'Мороженое', 'Напитки']
+let kitchen = ['Сырники', 'Команда', 'Круассаны', 'Торты', 'Киши', 'Праздник']
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
@@ -262,6 +263,175 @@ function initSliders() {
 				},
 			},*/
 			
+			// События
+			on: {
+
+			}
+		});
+	}
+
+
+
+
+	if (document.querySelector('.corn__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.corn__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation],
+			observer: false,
+			observeParents: false,
+			slidesPerView: 3,
+			spaceBetween: -20,
+			autoHeight: false,
+			speed: 800,
+
+			//touchRatio: 0,
+			simulateTouch: true,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			/*effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},*/
+			
+
+			// Пагинация
+			/*pagination: {
+				el: '.main-menu__slider-pagination, .main-menu__slider-pagination-bottom',
+				clickable: true,
+				renderBullet: function(index, className){
+					return '<span class="' + className + '">' + (menu[index]) + '</span>';
+				}
+				
+			},*/
+			
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.corn__swiper-button-prev',
+				nextEl: '.corn__swiper-button-next',
+			},
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			on: {
+
+			}
+		});
+	}
+
+
+
+	if (document.querySelector('.kitchen__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.kitchen__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			observer: false,
+			observeParents: false,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: false,
+			speed: 800,
+
+			//touchRatio: 0,
+			simulateTouch: true,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			/*effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},*/
+			
+
+			// Пагинация
+			pagination: {
+				el: '.kitchen__swiper-pagination',
+				clickable: true,
+				renderBullet: function(index, className){
+					return '<span class="' + className + '">' + (kitchen[index]) + '</span>';
+				}
+				
+			},
+			
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			/*navigation: {
+				prevEl: '.corn__swiper-button-prev',
+				nextEl: '.corn__swiper-button-next',
+			},*/
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
 			// События
 			on: {
 

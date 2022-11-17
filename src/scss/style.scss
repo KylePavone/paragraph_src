@@ -268,8 +268,10 @@ body {
 	text-align: center;
 }
 
+
+//modile
 .mobile {
-	margin-top: 200px;
+	@include adaptiveValue("margin-top", 119, 70);
 	background: #0E3032;
 	&__container {
 		@include adaptiveValue("padding-top", 100, 62);
@@ -548,6 +550,7 @@ body {
 	&__wrap {
 		display: inline-block;
 		overflow: hidden;
+		border-radius: 12px;
 		& img {
 			width: 100%;
 			border-radius: 12px;
@@ -731,5 +734,234 @@ body {
 
 .slide-food {
 	&__wrap {
+		display: inline-block;
+		overflow: hidden;
+		border-radius: 12px;
+		transition: all 1s ease 0s;
+		& img {
+			transition: all 1s ease 0s;
+			&:hover {
+				display: block;
+				transform: scale(1.2);
+			}
+		}
+	}
+}
+
+
+//corn
+
+.corn {
+	position: relative;
+	z-index: 2	;
+	margin-top: 114px;
+	background: #0E3032;
+	&__container {
+		padding-top: 92px;
+		padding-bottom: 113px;
+	}
+	&__title {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 800;
+		@include adaptiveValue("font-size", 90, 50);
+
+		line-height: 153.88%;
+		letter-spacing: 0.08em;
+		text-align: center;
+		color: transparent;
+		-webkit-text-stroke: 2px #fff;
+	}
+	&__slider {
+		@include adaptiveValue("width", 1000, 320);
+		position: relative;
+		z-index: 5;
+		
+	}
+	&__wrapper {
+		padding-left: 332px;
+		@media (max-width: $tablet) {
+			padding: 0;
+		}
+	}
+	&__slide {
+		display: flex;
+		justify-content: center;
+	
+		& img {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			box-shadow: none;
+		}
+		&.swiper-slide-active {
+			display: flex;
+			justify-content: center;
+			& img {
+				height: 120%;
+				width: 120%;
+			}
+		}
+	}
+	&__nav {
+		position: sticky;
+		display: flex;
+		justify-content: space-between;
+		bottom: 50%;
+		z-index: 10;
+		@media(max-width: $tablet) {
+			display: none;
+		}
+	}
+	&__swiper-button-prev,
+	&__swiper-button-next {
+
+		padding: 10px 9px 10px 9px;
+		border: 2px solid #165659;
+		border-radius: 8px;
+		transition: all 0.3s ease 0s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		& img {
+			width: 12px;
+			height: 12px;
+		}
+	
+		&:hover {
+			background: #165659;
+		}
+	}
+	&__swiper-button-prev {
+	}
+
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+
+
+//kitchen
+
+.kitchen {
+	&__container {
+		padding-top: 91px;
+		@media (max-width: $mobile) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	&__title {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 800;
+		@include adaptiveValue("font-size", 90, 40);
+		line-height: 153.88%;
+		text-align: center;
+		letter-spacing: 0.08em;
+		color: transparent;
+		-webkit-text-stroke: 2px #fff;
+		padding-bottom: 30px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	&__slider {
+	}
+	&__wrapper {
+	}
+	&__slide {
+		cursor: pointer;
+		& img {
+			border: 1px solid #0F3739;
+			border-radius: 13px;
+			@media (max-width: $mobile) {
+				border-radius: 0px;
+			}
+			width: 100%;
+			object-fit: cover;
+			
+			
+		}
+	}
+	&__swiper-pagination {
+		display: flex;
+	align-items: center;
+	justify-content: center;
+	@include adaptiveValue("gap", 40, 0);
+	width: auto !important;
+	left: auto !important;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	& span {
+		width: auto;
+		background: none;
+	}
+	}
+}
+
+.kitchen {
+	&__about {
+		padding-left: 15px;
+		padding-right: 15px;
+		@include adaptiveValue("padding-top", 52, 27);
+		@include adaptiveValue("padding-bottom", 62, 32);
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 400;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: 170%;
+		color: #fff;
+	}
+	&__get {
+	}
+}
+.get-kitchen {
+	padding-left: 15px;
+	padding-right: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@media (max-width: $tablet) {
+		flex-direction: column;
+		gap: 35px;
+		align-items: flex-start;
+	}
+	&__text {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 400;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: 153.88%;
+	}
+	&__link {
+		text-decoration: none;
+		font-weight: 700;
+	}
+	&__button {
+		text-decoration: none;
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 600;
+		line-height: 153.88%;
+		@include adaptiveValue("font-size", 18, 16);
+		padding: 11px 85px;
+		border: 2px solid #165659;
+		border-radius: 8px;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			background-color: #118181;
+		}
+		@media (max-width: $mobile) {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+			padding-top: 11px;
+			padding-bottom: 11px;
+			text-align: center;
+		}
 	}
 }
