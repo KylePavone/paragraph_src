@@ -59,7 +59,12 @@
 
 
 .header {
-	max-height: 90px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 300;
+	background-color: #0F3739;
+	min-height: 40px;
 	&__container {
 		position: relative;
 		display: flex;
@@ -242,4 +247,8 @@
 	& img {
 		object-fit: cover;
 	}
+}
+
+._header-scroll {
+	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }

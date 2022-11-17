@@ -4,6 +4,7 @@
 Сниппет(HTML): swiper
 */
 let menu = ['Завтраки', 'Мобильное приложение', 'Кофе в зёрнах', 'Круассаны', 'Новый какао']
+let food = ['Дeсeрты', 'Еда', 'Мороженое', 'Напитки']
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
@@ -102,6 +103,165 @@ function initSliders() {
 				},
 			},
 			*/
+			// События
+			on: {
+
+			}
+		});
+	}
+
+
+	if (document.querySelector('.townmenu__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.townmenu__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 14,
+			autoHeight: true,
+			speed: 800,
+
+			//touchRatio: 0,
+			simulateTouch: true,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			
+
+			// Пагинация
+			/*pagination: {
+				el: '.main-menu__slider-pagination, .main-menu__slider-pagination-bottom',
+				clickable: true,
+				renderBullet: function(index, className){
+					return '<span class="' + className + '">' + (menu[index]) + '</span>';
+				}
+				
+			},*/
+		
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.townmenu__swiper-button-prev',
+				nextEl: '.townmenu__swiper-button-next',
+			},
+
+			// Брейкпоинты
+			
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					
+				},
+				768: {
+					slidesPerView: 2,
+					
+				},
+				992: {
+					slidesPerView: 4,
+					
+				},
+				1268: {
+					slidesPerView: 4,
+				},
+			},
+			
+			// События
+			on: {
+
+			}
+		});
+	}
+
+
+
+	if (document.querySelector('.food__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.food__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 14,
+			autoHeight: true,
+			speed: 800,
+
+			//touchRatio: 0,
+			simulateTouch: true,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			
+
+			// Пагинация
+			pagination: {
+				el: '.food__swiper-pagination',
+				clickable: true,
+				renderBullet: function(index, className){
+					return '<span class="' + className + '">' + (food[index]) + '</span>';
+				}
+			},
+		
+
+			// Скроллбар
+			
+			/*scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},*/
+			
+
+			// Кнопки "влево/вправо"
+			
+
+			// Брейкпоинты
+			
+			/*breakpoints: {
+				320: {
+					slidesPerView: 1,
+					
+				},
+				768: {
+					slidesPerView: 2,
+					
+				},
+				992: {
+					slidesPerView: 4,
+					
+				},
+				1268: {
+					slidesPerView: 4,
+				},
+			},*/
+			
 			// События
 			on: {
 

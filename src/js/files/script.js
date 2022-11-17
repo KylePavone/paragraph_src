@@ -22,9 +22,10 @@ window.onload = function() {
 
     let closeButton = document.querySelector(".__cross")
     closeButton.addEventListener("click", function() {
-        navMenu.classList.remove("_active")
         layer.classList.remove("__active")
+        navMenu.classList.remove("_active")
     })
 
     let navButton = document.querySelector("")
+
 }
