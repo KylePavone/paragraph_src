@@ -62,13 +62,14 @@ body {
 	background-color: #0F3739;
 	// Скролл заблокирован
 	.lock & {
-		overflow: hidden;
+		overflow: auto;
 		touch-action: none;
 		overscroll-behavior: none;
 	}
-	// Сайт загружен
-	.loaded & {
+	&._active {
+		overflow: hidden;
 	}
+	// Сайт загружен
 }
 
 // Оболочка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
@@ -181,8 +182,6 @@ body {
 			border-radius: 0px;
 		}
 	}
-	&__wrapper {
-	}
 	&__slide {
 		cursor: pointer;
 		& img {
@@ -224,9 +223,6 @@ body {
 				height: 14px;
 			}
 		}
-	}
-	&.swiper-pagination-bullet {
-		
 	}
 }
 .main-menu__slider-pagination {
@@ -325,8 +321,6 @@ body {
 		}
 		
 	}
-	&__list {
-	}
 	&__item {
 		font-family: 'Raleway';
 		font-style: normal;
@@ -410,12 +404,6 @@ body {
 		text-transform: uppercase;
 		color: transparent;
 		-webkit-text-stroke: 2px #fff;
-	}
-	&__popup-container {
-	}
-	&__buttons {
-	}
-	&__images {
 	}
 }
 .container-popup {
@@ -584,12 +572,6 @@ body {
 		letter-spacing: 0.08em;
 		padding-bottom: 34px;
 	}
-	&__slider {
-	}
-	&__wrapper {
-	}
-	&__slide {
-	}
 	&__navigation {
 		padding-top: 30px;
 		display: flex;
@@ -619,8 +601,6 @@ body {
 		}
 	}
 }
-.swiper {
-}
 .swiper-wrapper {
 	display: flex;
 	align-items: center;
@@ -631,17 +611,12 @@ body {
 		width: 100%;
 	}
 }
-.swiper-scrollbar {
-}
-
 
 //food
 
 .food {
 	&__container {
 		padding-top: 130px;
-	}
-	&__slider {
 	}
 	&__swiper-pagination {
 		display: flex;
@@ -684,8 +659,6 @@ body {
 			}
 		}
 		
-	}
-	&__wrapper {
 	}
 	&__slide {
 		display: grid;
@@ -833,15 +806,7 @@ body {
 			background: #165659;
 		}
 	}
-	&__swiper-button-prev {
-	}
 
-}
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
 }
 
 
@@ -868,10 +833,6 @@ body {
 		padding-bottom: 30px;
 		padding-left: 15px;
 		padding-right: 15px;
-	}
-	&__slider {
-	}
-	&__wrapper {
 	}
 	&__slide {
 		cursor: pointer;
@@ -915,8 +876,6 @@ body {
 		@include adaptiveValue("font-size", 18, 16);
 		line-height: 170%;
 		color: #fff;
-	}
-	&__get {
 	}
 }
 .get-kitchen {
@@ -963,5 +922,117 @@ body {
 			padding-bottom: 11px;
 			text-align: center;
 		}
+	}
+}
+
+
+//user
+
+.accumulation {
+	padding-top: 130px;
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: 810px) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}
+.accumulation-content {
+}
+.content-accumulation {
+		&__title {
+			font-weight: 800;
+			@include adaptiveValue("font-size", 65, 38);
+			line-height: 115%;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: transparent;
+			-webkit-text-stroke: 2px #fff;
+			@media (max-width: 810px) {
+				text-align: center;
+			}
+		}
+
+		&__buttons {
+			padding-top: 44px;
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			@media (max-width: 810px) {
+				justify-content: space-between;
+				padding-top: 16px;
+				padding-bottom: 10px;
+			}
+		}
+
+		&__button-1,
+		&__button-2 {
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 153.88%;
+			letter-spacing: 0.02em;
+			color: #fff;
+			text-decoration: none;
+			border: 2px solid #165659;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 200px;
+			height: 50px;
+			text-align: center;
+			transition: all 0.3s ease 0s;
+			&:hover {
+				background-color: #118181;
+			}
+			@media (max-width: 810px) {
+				width: 100%;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+		&__button-2 {
+
+		}
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 28px;
+	background: #0D4749;
+	border-radius: 12px;
+	align-self: center;
+	@media (max-width: 810px) {
+		width: 100%;
+
+	}
+	&__account {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 153.88%;
+		letter-spacing: 0.02em;
+		opacity: 0.6;
+		padding-bottom: 10px;
+	}
+
+	&__money {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 38px;
+		letter-spacing: 0.02em;
+		color: #fff;
+		padding-bottom: 20px;
+		padding-right: 100px;
+	}
+
+	&__cashback {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: 0.02em;
+		color: #fff;
 	}
 }

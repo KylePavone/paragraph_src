@@ -214,8 +214,8 @@
 		align-items: center;
 		justify-content: flex-end;
 		@include adaptiveValue("gap", 40, 25);
-		gap: 40px;
-		margin-top: 20px;
+			gap: 40px;
+			margin-top: 20px;
 
 	}
 	&__icon-link {

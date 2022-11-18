@@ -10,13 +10,14 @@ window.onload = function() {
     activeTown.addEventListener("click", function(){
         activeTown.classList.toggle("_active")
     })
-
+    let bodyElement = document.querySelector("body")
     let navMenu = document.querySelector(".header__nav-menu")
     let layer = document.querySelector(".layer")
     let burgerMenu = document.querySelector(".icon-menu")
     burgerMenu.addEventListener("click", function(){
         navMenu.classList.add("_active")
         layer.classList.add("__active")
+        bodyElement.classList.add("_active")
        
     })
 
@@ -24,6 +25,7 @@ window.onload = function() {
     closeButton.addEventListener("click", function() {
         layer.classList.remove("__active")
         navMenu.classList.remove("_active")
+        bodyElement.classList.remove("_active")
     })
 
     let navButton = document.querySelector("")

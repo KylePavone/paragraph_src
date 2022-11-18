@@ -1,0 +1,29 @@
+@@include('html/_head.htm',{
+	"title":"Личный кабинет"
+	})
+    <body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+                <section class="accumulation">
+                    <div class="accumulation__container">
+                        <div class="accumulation-content content-accumulation">
+                            <div class="content-accumulation__title">Ваши накопления</div>
+                            <div class="content-accumulation__buttons">
+                                <a href="#" class="content-accumulation__button-1">Отзыв</a>
+                                <a href="#" class="content-accumulation__button-2">Настройки</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__account">На вашем счету:</div>
+                            <div class="card__money">7 руб. 55 коп.</div>
+                            <div class="card__cashback">Кэшбэк: 3%</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+@@include('html/_footer.htm',{})
+@@include('html/_popup.htm',{})
+@@include('html/_js.htm',{})
