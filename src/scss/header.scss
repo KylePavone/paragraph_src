@@ -65,6 +65,9 @@
 	z-index: 300;
 	background-color: #0F3739;
 	min-height: 40px;
+	&._active {
+		top: -100%;
+	}
 	&__container {
 		position: relative;
 		display: flex;
