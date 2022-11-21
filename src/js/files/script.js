@@ -20,59 +20,6 @@ plugin.popup = function(options) {
     }
 }
 
-plugin.productPopup = function(options, img) {
-    const productPopup = _createProductPopup(options, img)
-    return {
-        open(img) {
-            productPopup.classList.add("_active")
-        },
-        close() {
-            productPopup.classList.remove("_active")
-        },
-        destroy() {},
-    }
-}
-
-function _createProductPopup(options, img) {
-    const productPopup = document.createElement("div")
-    //console.log(options.target());
-    //console.log(options.image);
-    //let image = options.image.replace("http://192.168.1.123:8080/img/food/5.jpg", "")
-    //console.log(image);
-    
-    productPopup.classList.add("product-popup")
-    productPopup.insertAdjacentHTML("beforeend", `
-        <div class="product-popup__content">
-            <div class="product-popup__close">
-                <img src="img/close.svg" alt="">
-            </div>
-            <div class="product-popup__slider swiper">
-                <div class="product-popup__wrapper swiper-wrapper">
-                    <div class="product-popup__slide swiper-slide">
-                    <img src="img/food/2.jpg" alt="">
-                    </div>
-                    <div class="product-popup__slide swiper-slide">
-                        <img src="img/food/2.jpg" alt="">
-                    </div>
-                    <div class="product-popup__slide swiper-slide">
-                        <img src="img/food/2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="product-popup__swiper-pagination"></div>
-                <button type="button" class="product-popup__swiper-button-prev"></button>
-                <button type="button" class="product-popup__swiper-button-next"></button>
-            </div>
-            <div class="product-popup__info info-product-popup">
-                <div class="info-product-popup__title">Макаронс "Солёная карамель"</div>
-                <div class="info-product-popup__price">20 г / 3 руб. 70 коп.</div>
-                <div class="info-product-popup__description">Описание: Хрустящее французское пирожное со вкусом солёной карамели.</div>
-                <div class="info-product-popup__condition">КБЖУ ( в 100 гр.): 433,39/1,84/31,24/36,33</div>
-            </div>
-        </div>
-    `)
-    document.body.appendChild(productPopup)
-    return productPopup
-}
 
 function _createPopup(options) {
     const popup = document.createElement("div")
@@ -208,6 +155,7 @@ let userTermsContent = `
         <p>ООО «ПараграфБрест» оставляет за собой право в дальнейшем изменять условия программы.</p>
     </div>
 `
+
 let formOptions = {
     close: "form-close",
     header: "Анкета гостя",
@@ -230,67 +178,97 @@ let info = [
     {
         img: "img/food/1.jpg",
         title: "Торт",
-        weight: "500г"
+        price: "100г/ 5р",
+        description: "Наполеон"
     },
     {
         img: "img/food/2.jpg",
         title: "Печенье",
-        weight: "700г"
+        price: "100г/ 5р",
+        description: "Супер печенье"
     },
     {
         img: "img/food/3.jpg",
         title: "Вафли",
-        weight: "200г"
+        price: "100г/ 5р",
+        description: "Всем нравится"
     },
     {
         img: "img/food/4.jpg",
         title: "Кофе",
-        weight: "100г"
+        price: "100г/ 5р",
+        description: "Натуральные зерна"
     },
     {
         img: "img/food/5.jpg",
         title: "Ягоды",
-        weight: "400г"
+        price: "100г/ 5р",
+        description: "Доступно для всех"
     },
     {
         img: "img/food/6.jpg",
         title: "Чай",
-        weight: "200г"
+        price: "100г/ 5р",
+        description: "Отборные ингридиенты"
     },
     {
         img: "img/food/7.jpg",
         title: "Пирог",
-        weight: "300г"
+        price: "100г/ 5р",
+        description: "Норм"
     },
     {
         img: "img/food/8.jpg",
         title: "Булка",
-        weight: "200г"
+        price: "100г/ 5р",
+        description: "Из Италии"
     },
     {
         img: "img/food/9.jpg",
         title: "Мороженое",
-        weight: "100г"
+        price: "100г/ 5р",
+        description: "Натуральный продукт"
     },
 ]
-let popupProductOpener = (img) => {
-    popupProduct.open(img)
+
+
+function productOpener() {
+    let productPopup = document.querySelector(".product-popup")
+    productPopup.classList.add("_active")
+}
+
+let product = document.querySelector(".food__wrapper")
+if (product) {
+    product.onclick = function(e) {
+        let target = e.target
+        if (target.innerHTML.length > 50) return;
+        let newSrc = info[target.dataset.id - 1].img
+        let images = document.querySelectorAll(".popup-image")
+        for (let img of images) {
+            img.src = newSrc
+        }
+        let productTitlle = document.querySelector(".info-product-popup__title")
+        let productPrice = document.querySelector(".info-product-popup__price")
+        let productDescription = document.querySelector(".info-product-popup__description")
+        productTitlle.innerHTML = info[target.dataset.id - 1].title
+        productPrice.innerHTML = info[target.dataset.id - 1].price
+        productDescription.innerHTML = info[target.dataset.id - 1].description
+        productOpener()
+        let productPopup = document.querySelector(".product-popup")
+        if (productPopup.classList.contains("_active")) {
+            let closable = document.querySelector(".product-popup__close")
+            closable.addEventListener("click", productCloser)
+        }
+        if (!target.classList.contains("food-slide")) return
+    }
 }
 
 
-let wrap = document.querySelector(".slide-food__wrap")
-let elem = wrap.getAttribute("data-id")
-console.log(elem);
-let productOptions = {
-    close: "product-close",
-    num: "",
-    image: info[6].img,
-    title: info[6].title,
-    weight: info[6].weight,
+//закрыть попап продукта
+function productCloser() {
+    let productPopup = document.querySelector(".product-popup")
+    productPopup.classList.remove("_active")
 }
-
-const popupProduct = plugin.productPopup(productOptions)
-
 //закрыть-открыть
 let formPopupOpener = (e) => {
     formPopup.open()
@@ -306,90 +284,60 @@ let termsPopupOpener = (e) => {
 let termsPopupCloser = (e) => {
     termsPopup.close()
 }
-let targ
-
-let popupProductCloser = (e) => {
-    popupProduct.close()
-}
 
 
+let activeTown = document.querySelector(".towns-header__active")
+activeTown.addEventListener("click", function(){
+    activeTown.classList.toggle("_active")
+})
+let headerElement = document.querySelector(".header")
+let bodyElement = document.querySelector("body")
+let navMenu = document.querySelector(".header__nav-menu")
+let layer = document.querySelector(".layer")
+let burgerMenu = document.querySelector(".icon-menu")
+burgerMenu.addEventListener("click", function(){
+    navMenu.classList.add("_active")
+    layer.classList.add("__active")
+    bodyElement.classList.add("_active")
+    headerElement.classList.add("_active")
+})
 
-window.onload = function() {
-    let activeTown = document.querySelector(".towns-header__active")
-    activeTown.addEventListener("click", function(){
-        activeTown.classList.toggle("_active")
-    })
-    let headerElement = document.querySelector(".header")
-    let bodyElement = document.querySelector("body")
-    let navMenu = document.querySelector(".header__nav-menu")
-    let layer = document.querySelector(".layer")
-    let burgerMenu = document.querySelector(".icon-menu")
-    burgerMenu.addEventListener("click", function(){
-        navMenu.classList.add("_active")
-        layer.classList.add("__active")
-        bodyElement.classList.add("_active")
-        headerElement.classList.add("_active")
-    })
+let closeButton = document.querySelector(".__cross")
+closeButton.addEventListener("click", function() {
+    layer.classList.remove("__active")  
+    navMenu.classList.remove("_active")
+    bodyElement.classList.remove("_active")
+    headerElement.classList.remove("_active")
+})
 
-    let closeButton = document.querySelector(".__cross")
-    closeButton.addEventListener("click", function() {
-        layer.classList.remove("__active")  
-        navMenu.classList.remove("_active")
-        bodyElement.classList.remove("_active")
-        headerElement.classList.remove("_active")
-    })
-    /*let menuItem = document.querySelector(".menu-nav__item")
-    let navMenuFixed = document.querySelector(".menu-nav__list")
-    navMenuFixed.onclick = function(e) {
-        let target = e.target
-        console.log(target.classList);
-        console.log(menuItem);
-        if (target.className !== "menu-nav__link") {
-            navMenu.classList.remove("_active")
-            layer.classList.remove("__active")
-            headerElement.classList.add("_active")
-        }
-    }*/
 
-    //открыть попап с формой
-    let guest = document.querySelector(".guest-popup")
+//открыть попап с формой
+let guest = document.querySelector(".guest-popup")
+if (guest) {
     guest.addEventListener("click", formPopupOpener)
-
-    //закрыть попап с формой
-    let crossButton = document.querySelector(".form-close")
-    crossButton.addEventListener("click", formPopupCloser)
-    let sendButton = document.querySelector(".my-popup__footer")
-    sendButton.addEventListener("click", formPopupCloser)
-
-    //открытие попапа условий пользования
-    let userTerms = document.querySelector(".sub-info-footer__powered")
-    userTerms.addEventListener("click", termsPopupOpener)
-
-    //закрытие попапа условий пользования
-    let termsClose = document.querySelector(".terms-close")
-    termsClose.addEventListener("click", termsPopupCloser)
-    //открыть попап с продуктом
-    let products = document.querySelector(".food__wrapper")
-    products.onclick = function(e) {
-        let target = e.target
-        if (target.innerHTML.length > 50) return;
-        //console.log(target);
-        let url = target
-        popupProductOpener(target, url)
-        if (!target.classList.contains("food-slide")) return
-    }
-    //console.log(imgArray[0])
-    //закрыть попап с продуктом
-    let productClose = document.querySelector(".product-close")
-    productClose.addEventListener("click", popupProductCloser)
-
-    //дропдаун с адресами
-    let addressArrow = document.querySelector(".main-my-popup-form__select")
-    addressArrow.addEventListener("click", function(){
-        let addressArrow = document.querySelector(".main-my-popup-form__select-image")
-        addressArrow.classList.toggle("_active")
-    })
-   
 }
+
+
+//закрыть попап с формой
+let crossButton = document.querySelector(".form-close")
+crossButton.addEventListener("click", formPopupCloser)
+let sendButton = document.querySelector(".my-popup__footer")
+sendButton.addEventListener("click", formPopupCloser)
+
+//открытие попапа условий пользования
+let userTerms = document.querySelector(".sub-info-footer__powered")
+userTerms.addEventListener("click", termsPopupOpener)
+
+//закрытие попапа условий пользования
+let termsClose = document.querySelector(".terms-close")
+termsClose.addEventListener("click", termsPopupCloser)
+//открыть попап с продуктом
+//дропдаун с адресами
+let addressArrow = document.querySelector(".main-my-popup-form__select")
+addressArrow.addEventListener("click", function(){
+    let addressArrow = document.querySelector(".main-my-popup-form__select-image")
+    addressArrow.classList.toggle("_active")
+})
+   
 
 

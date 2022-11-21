@@ -1976,6 +1976,7 @@ body {
 .info-product-popup {
 	padding-left: 30px;
 	padding-top: 40px;
+	flex: 1 1 100%;
 	&__title {
 		font-weight: 700;
 		@include adaptiveValue("font-size", 24, 18);
@@ -1992,7 +1993,7 @@ body {
 		text-transform: uppercase;
 		padding-bottom: 20px;
 	}
-	&__description {
+	&__description {	
 		font-weight: 400;
 		@include adaptiveValue("font-size", 18, 16);
 		line-height: 21px;

@@ -102,32 +102,32 @@
 							<div class="food__swiper-pagination"></div>
 							<div class="food__wrapper swiper-wrapper">
 								<div class="food__slide slide-food swiper-slide">
-									<div data-id="1" class="slide-food__wrap">
-										<img src="img/food/1.jpg" alt="">
-									</div>
-									<div data-id="1" class="slide-food__wrap">
-										<img class="im" src="img/food/2.jpg" alt="">
-									</div>
-									<div data-id="2" class="slide-food__wrap">
-										<img class="im" src="img/food/3.jpg" alt="">
-									</div>
-									<div data-id="3" class="slide-food__wrap">
-										<img class="im" src="img/food/4.jpg" alt="">
-									</div>
-									<div data-id="4" class="slide-food__wrap">
-										<img class="im" src="img/food/5.jpg" alt="">
-									</div>
-									<div data-id="5" class="slide-food__wrap">
-										<img class="im" src="img/food/6.jpg" alt="">
+									<div class="slide-food__wrap">
+										<img data-id="1" class="im" src="img/food/1.jpg" alt="">
 									</div>
 									<div class="slide-food__wrap">
-										<img class="im" src="img/food/7.jpg" alt="">
+										<img data-id="2" class="im" src="img/food/2.jpg" alt="">
 									</div>
 									<div class="slide-food__wrap">
-										<img class="im" src="img/food/8.jpg" alt="">
+										<img data-id="3" class="im" src="img/food/3.jpg" alt="">
 									</div>
 									<div class="slide-food__wrap">
-										<img class="im" src="img/food/9.jpg" alt="">
+										<img data-id="4" class="im" src="img/food/4.jpg" alt="">
+									</div>
+									<div class="slide-food__wrap">
+										<img data-id="5" data-id="5" class="im" src="img/food/5.jpg" alt="">
+									</div>
+									<div class="slide-food__wrap">
+										<img data-id="6" class="im" src="img/food/6.jpg" alt="">
+									</div>
+									<div class="slide-food__wrap">
+										<img data-id="7" class="im" src="img/food/7.jpg" alt="">
+									</div>
+									<div class="slide-food__wrap">
+										<img data-id="8" class="im" src="img/food/8.jpg" alt="">
+									</div>
+									<div class="slide-food__wrap">
+										<img data-id="9" class="im" src="img/food/9.jpg" alt="">
 									</div>
 								</div>
 								<div class="food__slide slide-food swiper-slide">
@@ -401,6 +401,40 @@
 						</div>
 					</div>
 				</div>-->
+
+
+				<div class="product-popup">
+					<div class="product-popup__content">
+						<div class="product-popup__close">
+							<img src="img/close.svg" alt="">
+						</div>
+						<div class="product-popup__slider swiper">
+							<div class="product-popup__wrapper swiper-wrapper">
+								<div data-image class="product-popup__slide swiper-slide">
+									<img class="popup-image" src="img/food/1.jpg" alt="">
+								</div>
+								<div data-image class="product-popup__slide swiper-slide">
+									<img class="popup-image" src="img/food/1.jpg" alt="">
+								</div>
+								<div data-image class="product-popup__slide swiper-slide">
+									<img class="popup-image" src="img/food/1.jpg" alt="">
+								</div>
+							</div>
+							<div class="product-popup__swiper-pagination"></div>
+							<button type="button" class="product-popup__swiper-button-prev"></button>
+							<button type="button" class="product-popup__swiper-button-next"></button>
+						</div>
+						<div class="product-popup__info info-product-popup">
+							<div class="info-product-popup__title">Макаронс "Солёная карамель"</div>
+							<div class="info-product-popup__price">20 г / 3 руб. 70 коп.</div>
+							<div class="info-product-popup__description">Описание: Хрустящее французское пирожное со вкусом солёной карамели.
+							</div>
+							<div class="info-product-popup__condition">КБЖУ ( в 100 гр.): 433,39/1,84/31,24/36,33</div>
+						</div>
+					</div>
+				</div>	
+        
+
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
