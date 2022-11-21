@@ -5,81 +5,6 @@ import { flsModules } from "./modules.js";
 
 
 
-window.onload = function() {
-    let activeTown = document.querySelector(".towns-header__active")
-    activeTown.addEventListener("click", function(){
-        activeTown.classList.toggle("_active")
-    })
-    let headerElement = document.querySelector(".header")
-    let bodyElement = document.querySelector("body")
-    let navMenu = document.querySelector(".header__nav-menu")
-    let layer = document.querySelector(".layer")
-    let burgerMenu = document.querySelector(".icon-menu")
-    burgerMenu.addEventListener("click", function(){
-        navMenu.classList.add("_active")
-        layer.classList.add("__active")
-        bodyElement.classList.add("_active")
-        headerElement.classList.add("_active")
-    })
-
-    let closeButton = document.querySelector(".__cross")
-    closeButton.addEventListener("click", function() {
-        layer.classList.remove("__active")  
-        navMenu.classList.remove("_active")
-        bodyElement.classList.remove("_active")
-        headerElement.classList.remove("_active")
-    })
-
-    //открыть попап с формой
-    let guest = document.querySelector(".guest-popup")
-    guest.addEventListener("click", formPopupOpener)
-
-    //закрыть попап с формой
-    let crossButton = document.querySelector(".form-close")
-    crossButton.addEventListener("click", formPopupCloser)
-    let sendButton = document.querySelector(".my-popup__footer")
-    sendButton.addEventListener("click", formPopupCloser)
-
-    //открытие попапа условий пользования
-    let userTerms = document.querySelector(".sub-info-footer__powered")
-    userTerms.addEventListener("click", termsPopupOpener)
-
-    //закрытие попапа условий пользования
-    let termsClose = document.querySelector(".terms-close")
-    termsClose.addEventListener("click", termsPopupCloser)
-
-    //открыть попап с продуктом
-    let products = document.querySelector(".food__wrapper")
-    products.onclick = function(e) {
-        let target = e.target
-        if (target.innerHTML.length > 50) return;
-        console.log(target);
-        popupProductOpener()
-        if (!target.classList.contains("food-slide")) return
-    }
-
-    //закрыть попап с продуктом
-    let productClose = document.querySelector(".product-close")
-    productClose.addEventListener("click", popupProductCloser)
-
-    //дропдаун с адресами
-    let addressArrow = document.querySelector(".main-my-popup-form__select")
-    addressArrow.addEventListener("click", function(){
-        let addressArrow = document.querySelector(".main-my-popup-form__select-image")
-        addressArrow.classList.toggle("_active")
-    })
-   $(".table-bonuses__content").click(function(){
-        if ($(".table-bonuses").hasClass("one")) {
-            $(".table-bonuses__content").not($(this)).removeClass("_active")
-            $(".table-bonuses__content").not($(this)).children(".table-bonuses__arrow").removeClass("_active")
-            $(".table-bonuses__spoller").not($(this).next()).slideUp(0)
-        }
-        $(this).toggleClass("_active").next().slideToggle(0)
-        $(this).children(".table-bonuses__arrow").toggleClass("_active")
-    })
-}
-
-
 const plugin = {}
 
 plugin.popup = function(options) {
@@ -95,10 +20,10 @@ plugin.popup = function(options) {
     }
 }
 
-plugin.productPopup = function(options) {
-    const productPopup = _createProductPopup(options)
+plugin.productPopup = function(options, img) {
+    const productPopup = _createProductPopup(options, img)
     return {
-        open() {
+        open(img) {
             productPopup.classList.add("_active")
         },
         close() {
@@ -108,18 +33,23 @@ plugin.productPopup = function(options) {
     }
 }
 
-function _createProductPopup(options) {
+function _createProductPopup(options, img) {
     const productPopup = document.createElement("div")
+    //console.log(options.target());
+    //console.log(options.image);
+    //let image = options.image.replace("http://192.168.1.123:8080/img/food/5.jpg", "")
+    //console.log(image);
+    
     productPopup.classList.add("product-popup")
     productPopup.insertAdjacentHTML("beforeend", `
         <div class="product-popup__content">
-            <div class="product-popup__close ${options.close}">
+            <div class="product-popup__close">
                 <img src="img/close.svg" alt="">
             </div>
             <div class="product-popup__slider swiper">
                 <div class="product-popup__wrapper swiper-wrapper">
                     <div class="product-popup__slide swiper-slide">
-                        <img src="img/food/2.jpg" alt=""> 
+                    <img src="img/food/2.jpg" alt="">
                     </div>
                     <div class="product-popup__slide swiper-slide">
                         <img src="img/food/2.jpg" alt="">
@@ -296,11 +226,70 @@ let termsOptions = {
 const termsPopup = plugin.popup(termsOptions)
 
 
+let info = [
+    {
+        img: "img/food/1.jpg",
+        title: "Торт",
+        weight: "500г"
+    },
+    {
+        img: "img/food/2.jpg",
+        title: "Печенье",
+        weight: "700г"
+    },
+    {
+        img: "img/food/3.jpg",
+        title: "Вафли",
+        weight: "200г"
+    },
+    {
+        img: "img/food/4.jpg",
+        title: "Кофе",
+        weight: "100г"
+    },
+    {
+        img: "img/food/5.jpg",
+        title: "Ягоды",
+        weight: "400г"
+    },
+    {
+        img: "img/food/6.jpg",
+        title: "Чай",
+        weight: "200г"
+    },
+    {
+        img: "img/food/7.jpg",
+        title: "Пирог",
+        weight: "300г"
+    },
+    {
+        img: "img/food/8.jpg",
+        title: "Булка",
+        weight: "200г"
+    },
+    {
+        img: "img/food/9.jpg",
+        title: "Мороженое",
+        weight: "100г"
+    },
+]
+let popupProductOpener = (img) => {
+    popupProduct.open(img)
+}
+
+
+let wrap = document.querySelector(".slide-food__wrap")
+let elem = wrap.getAttribute("data-id")
+console.log(elem);
 let productOptions = {
     close: "product-close",
+    num: "",
+    image: info[6].img,
+    title: info[6].title,
+    weight: info[6].weight,
 }
-const popupProduct = plugin.productPopup(productOptions)
 
+const popupProduct = plugin.productPopup(productOptions)
 
 //закрыть-открыть
 let formPopupOpener = (e) => {
@@ -317,10 +306,90 @@ let termsPopupOpener = (e) => {
 let termsPopupCloser = (e) => {
     termsPopup.close()
 }
+let targ
 
-let popupProductOpener = (e) => {
-    popupProduct.open()
-}
 let popupProductCloser = (e) => {
     popupProduct.close()
 }
+
+
+
+window.onload = function() {
+    let activeTown = document.querySelector(".towns-header__active")
+    activeTown.addEventListener("click", function(){
+        activeTown.classList.toggle("_active")
+    })
+    let headerElement = document.querySelector(".header")
+    let bodyElement = document.querySelector("body")
+    let navMenu = document.querySelector(".header__nav-menu")
+    let layer = document.querySelector(".layer")
+    let burgerMenu = document.querySelector(".icon-menu")
+    burgerMenu.addEventListener("click", function(){
+        navMenu.classList.add("_active")
+        layer.classList.add("__active")
+        bodyElement.classList.add("_active")
+        headerElement.classList.add("_active")
+    })
+
+    let closeButton = document.querySelector(".__cross")
+    closeButton.addEventListener("click", function() {
+        layer.classList.remove("__active")  
+        navMenu.classList.remove("_active")
+        bodyElement.classList.remove("_active")
+        headerElement.classList.remove("_active")
+    })
+    /*let menuItem = document.querySelector(".menu-nav__item")
+    let navMenuFixed = document.querySelector(".menu-nav__list")
+    navMenuFixed.onclick = function(e) {
+        let target = e.target
+        console.log(target.classList);
+        console.log(menuItem);
+        if (target.className !== "menu-nav__link") {
+            navMenu.classList.remove("_active")
+            layer.classList.remove("__active")
+            headerElement.classList.add("_active")
+        }
+    }*/
+
+    //открыть попап с формой
+    let guest = document.querySelector(".guest-popup")
+    guest.addEventListener("click", formPopupOpener)
+
+    //закрыть попап с формой
+    let crossButton = document.querySelector(".form-close")
+    crossButton.addEventListener("click", formPopupCloser)
+    let sendButton = document.querySelector(".my-popup__footer")
+    sendButton.addEventListener("click", formPopupCloser)
+
+    //открытие попапа условий пользования
+    let userTerms = document.querySelector(".sub-info-footer__powered")
+    userTerms.addEventListener("click", termsPopupOpener)
+
+    //закрытие попапа условий пользования
+    let termsClose = document.querySelector(".terms-close")
+    termsClose.addEventListener("click", termsPopupCloser)
+    //открыть попап с продуктом
+    let products = document.querySelector(".food__wrapper")
+    products.onclick = function(e) {
+        let target = e.target
+        if (target.innerHTML.length > 50) return;
+        //console.log(target);
+        let url = target
+        popupProductOpener(target, url)
+        if (!target.classList.contains("food-slide")) return
+    }
+    //console.log(imgArray[0])
+    //закрыть попап с продуктом
+    let productClose = document.querySelector(".product-close")
+    productClose.addEventListener("click", popupProductCloser)
+
+    //дропдаун с адресами
+    let addressArrow = document.querySelector(".main-my-popup-form__select")
+    addressArrow.addEventListener("click", function(){
+        let addressArrow = document.querySelector(".main-my-popup-form__select-image")
+        addressArrow.classList.toggle("_active")
+    })
+   
+}
+
+
