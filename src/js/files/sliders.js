@@ -519,6 +519,86 @@ function initSliders() {
 		});
 	}
 
+
+
+
+
+	if (document.querySelector('.product-popup__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.product-popup__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: true,
+			speed: 800,
+
+			//touchRatio: 0,
+			simulateTouch: true,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			
+
+			// Пагинация
+			pagination: {
+				el: '.product-popup__swiper-pagination',
+				clickable: true,
+			},
+		
+
+			// Скроллбар
+			
+			/*scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},*/
+			
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.product-popup__swiper-button-prev',
+				nextEl: '.product-popup__swiper-button-next',
+			},
+
+			// Брейкпоинты
+			
+			/*breakpoints: {
+				320: {
+					slidesPerView: 1,
+					
+				},
+				768: {
+					slidesPerView: 2,
+					
+				},
+				992: {
+					slidesPerView: 4,
+					
+				},
+				1268: {
+					slidesPerView: 4,
+				},
+			},*/
+			
+			// События
+			on: {
+
+			}
+		});
+	}
+
 	
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
