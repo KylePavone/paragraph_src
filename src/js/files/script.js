@@ -99,7 +99,7 @@ let formContent = `
                         <option class="main-my-popup-form__option" value="address4">Брест, Карбышева, 32</option>
                         <option class="main-my-popup-form__option" value="address5">Брест, Карбышева, 32</option>
                     </select>
-                    <img class="main-my-popup-form__select-image" src="img/arrow.svg" alt="">
+                    
                 </div>
             </div>
             <input class="main-my-popup-form__agree" type="checkbox" id="agree">
